@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from datetime import datetime
 from uuid import uuid4
 
@@ -14,7 +16,7 @@ class SaveInDataframe:
 
     def close_spider(self, spider):
         df = pd.DataFrame(self.items)
-        with open(f"bearspace/output/{uuid4()}_{datetime.now()}", "w") as f:
+        with open(f'bearspace/output/{uuid4()}_{datetime.now()}', 'w') as f:
             dfAsString = df.to_string(header=False, index=False)
             f.write(dfAsString)
         f.close()
